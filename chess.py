@@ -1,13 +1,48 @@
+"""
+This is a simple command line chess application.
+Please feel free to use, modify, or redistribute it however you wish. Although
+some credit would be nice, it's not necessary.
+
+Some of the more esoteric rules such as en-passent, or draw by 3x repetition 
+are yet to be implemented and I cannot guarantee that I will implement them
+in future.
+
+Some cool features which would be nice to implement if you are so inclined are:
+    [Sane]
+    - Game store and load functionality
+    - Draw/resign functionality
+    - Removing the old board from the screen before redrawing
+    - Missing rules (some listed above)
+    - History of moves played displayed on screen
+    - A game timer
+    - Nicer art :)
+    - Ability to load in various art styles
+    [Insane/complex]
+    - Playing against the computer
+    - Networking functionality to play against other players
+
+p.s. at time of writing this has only been tested on python 3.8.5 and likely
+    contains several bugs.
+"""
+
+__author__ = "Patrick Sheppard"
+__email__ = "patricksheppardd@gmail.com"
+__contact__ = "https://patrick-sheppard.com"
+__copyright__ = "None, do what you want with this code."
+__license__ = None
+__version__ = "1.0.0"
+__date__ = "Sat 12 Sep 2020"
+
 from math import floor, ceil
 import time
 import os
 import sys
 
-# Set to 0.001 to get that retro feel.
+# Set to 0.001 or even 0.01 to get that retro feel.
 PRINT_DELAY = 0
 
 # If you change these, you also need to change the ASCII art
-# for the pieces below.
+# for the pieces.
 WIDTH = 10
 HEIGHT = 5
 
@@ -188,6 +223,7 @@ class Piece:
     """
 
     def __init__(self, black, name=''):
+        # False for white, True for black.
         self.black = black
         self.name = name
         self.moved = False
